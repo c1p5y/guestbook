@@ -37,6 +37,7 @@ export function GuestForm() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
     const response = await saveMessageFromGuest(values.name, values.message, values.hide)
     if (response.error === null) {
       toast.success("Message succesfully saved!")
@@ -90,7 +91,7 @@ export function GuestForm() {
             <FormItem>
               <FormLabel>Private message</FormLabel>
               <FormControl>
-                <Checkbox />
+                <Checkbox  checked={field.value} onCheckedChange={field.onChange}/>
               </FormControl>
               <FormDescription>
                 Hide the message from being publicly visible.
