@@ -13,3 +13,11 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model message {
+  id        Int     @id @default(autoincrement())
+  timestamp DateTime  @default(now())
+  name      String
+  message   String
+  hide      Boolean
+}

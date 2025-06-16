@@ -40,9 +40,11 @@ export function GuestForm() {
     const response = await saveMessageFromGuest(values.name, values.message, values.hide)
     if (response.error === null) {
       toast.success("Message succesfully saved!")
+      form.reset();
     } else {
       toast.error("Message not saved! Error:" + response.error.message)
     }
+
   }
 
   return (
